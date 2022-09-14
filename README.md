@@ -1,0 +1,4 @@
+# dotfiles
+
+- tmux
+- zsh
