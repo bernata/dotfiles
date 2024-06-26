@@ -26,6 +26,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-alias ls=exa
-alias ll="ls -al"
-alias tree="exa --tree"
+alias l='ls -l'
+alias la='ls -a'
+alias ll='ls -la'
+alias lt='ls --tree'
