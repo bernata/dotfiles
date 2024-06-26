@@ -1,5 +1,6 @@
 #Copy to .zshrc
 #brew install zsh
+#brew install lsd
 #brew install tfenv
 #brew install pyenv
 #brew install tmux
