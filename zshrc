@@ -4,6 +4,7 @@
 #brew install tfenv
 #brew install pyenv
 #brew install tmux
+#brew install font-hack-nerd-font
 
 zstyle ':vcs_info:git:*' formats '[%b]'
                                       
