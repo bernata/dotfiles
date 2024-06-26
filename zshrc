@@ -1,6 +1,5 @@
 #Copy to .zshrc
 #brew install zsh
-#brew install exa
 #brew install tfenv
 #brew install pyenv
 #brew install tmux
