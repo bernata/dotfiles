@@ -15,12 +15,7 @@ if [[ -z "$TMUX" ]]; then
         tmux 
 fi
 
-# change color of directories in exa
-# https://the.exa.website/docs/colour-themes
-export LS_COLORS="di=36;1"
-export EXA_COLORS="da=35"
-
-export TFENV_ARCH=amd64
+#export TFENV_ARCH=amd64
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
