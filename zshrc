@@ -1,5 +1,5 @@
 #Copy to .zshrc
-#brew install zshrc
+#brew install zsh
 #brew install exa
 #brew install tfenv
 #brew install pyenv
