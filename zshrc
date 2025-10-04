@@ -6,11 +6,36 @@
 #brew install tmux
 #brew install font-hack-nerd-font
 
-zstyle ':vcs_info:git:*' formats '[%b]'
-                                      
-# Set up the prompt (with git branch name)
+########################################
+# Prompt: user@host dir (git_branch*) ➜
+# Inspired by recommended concise prompt pattern.
+# Shows:
+#   • user and host
+#   • current directory (relative to ~)
+#   • current git branch and a '*' if the working tree is dirty
+#   • a pretty arrow symbol
+
+# Git helper for prompt
+parse_git() {
+  command git rev-parse --is-inside-work-tree &>/dev/null || return 0
+  local branch dirty
+  branch=$(command git symbolic-ref --quiet --short HEAD 2>/dev/null || \
+           command git rev-parse --short HEAD 2>/dev/null)
+  command git diff --quiet --ignore-submodules HEAD &>/dev/null || dirty='*'
+  printf '[%s%s]' "$branch" "$dirty"
+}
+
+# Colors (ANSI)
+local c_user="%F{green}"
+local c_host="%F{yellow}"
+local c_dir="%F{blue}"
+local c_git="%F{magenta}"
+local c_reset="%f"
+
 setopt PROMPT_SUBST
-PROMPT='%F{green}${PWD/#$HOME/~}%f %F{yellow}${vcs_info_msg_0_}%f > '
+# New concise prompt (user@host dir [branch*] ➜)
+PROMPT="${c_user}%n${c_reset}@${c_host}%m ${c_dir}%~${c_reset} ${c_git}\$(parse_git)${c_reset} ➜ "
+
 
 if [[ -z "$TMUX" ]]; then
         tmux 
